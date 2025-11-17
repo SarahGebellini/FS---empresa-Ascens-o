@@ -1186,6 +1186,7 @@ body.dark-mode .modal p {
   body.dark-mode .contact-form textarea {
       color: #e0e0e0 !important;
       border-color: #e1b874 !important;
+  }
 
   /* --- Modal --- */
   .modal-content {
@@ -1200,4 +1201,5 @@ body.dark-mode .modal p {
   .hero-content h1 { font-size: 2rem; }
   .navbar-logo img { height: 50px; }
 }
+
 
