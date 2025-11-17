@@ -1164,6 +1164,7 @@ body.dark-mode .modal p {
     width: 100% !important;
     box-sizing: border-box !important; /* Crítico: conta a borda dentro do tamanho */
     max-width: 100% !important;
+  }
 
   /* --- Modal --- */
   .modal-content {
@@ -1178,5 +1179,3 @@ body.dark-mode .modal p {
   .hero-content h1 { font-size: 2rem; }
   .navbar-logo img { height: 50px; }
 }
-
-
