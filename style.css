@@ -612,34 +612,6 @@ button::hover {
   padding: 0 5px;
 }
 
-@media (max-width: 600px) {
-  .contact-form {
-    width: 100%;
-    padding: 30px 20px;
-    margin-left: 0;
-  }
-
-  .grupo-nome {
-    margin-bottom: 15px;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    padding: 12px;
-    font-size: 0.95rem;
-  }
-
-  .grupo-nome label {
-    left: 0.8rem;
-    font-size: 0.9rem;
-  }
-
-  .contact-form button {
-    padding: 12px;
-    font-size: 1rem;
-  }
-}
-
 .modal {
   display: none;
   position: fixed;
@@ -1021,4 +993,180 @@ body.dark-mode .modal h2 {
 body.dark-mode .modal p {
   color: #e0e0e0;
   /* Texto principal claro */
+}
+
+/* =========================================
+   RESPONSIVIDADE PWA / MOBILE
+   ========================================= */
+
+@media (max-width: 900px) {
+
+  /* --- Ajustes Gerais --- */
+  body {
+    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+  }
+
+  /* --- Navbar --- */
+  .navbar {
+    height: 80px; /* Barra menor no mobile */
+    padding: 0.5rem 1.5rem;
+  }
+
+  .navbar-logo img {
+    height: 60px; /* Logo menor */
+    margin-left: 0;
+  }
+
+  /* Aqui seria ideal ter um ícone de menu hambúrguer via JS. 
+     Como é CSS puro, garantimos que o layout não quebre */
+  .nav-links {
+    display: none; /* Esconde menu desktop. Precisa de JS para toggle */
+  }
+  
+  /* Botão de tema no mobile */
+  #theme-toggle-button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+
+  /* --- Hero Section --- */
+  .hero {
+    padding: 120px 1.5rem 3rem; /* Mais espaço no topo por causa da navbar fixa */
+    min-height: auto; /* Altura automática */
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem; /* Texto menor para não cortar */
+    line-height: 1.2;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  button {
+    width: 100%; /* Botão largura total facilita o toque */
+    padding: 15px;
+  }
+
+  /* --- Cards (Missão/Visão/Valores) --- */
+  .card {
+    width: 90%; /* Ocupa quase toda a tela */
+    padding: 25px 20px;
+  }
+
+  /* --- FAQ --- */
+  .faq-container {
+    width: 90%;
+    margin-top: 30px;
+  }
+
+  .faq-item {
+    padding: 20px;
+  }
+
+  .faq-header {
+    align-items: flex-start; /* Alinha topo caso o texto quebre */
+  }
+
+  .faq-question {
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  .faq-content {
+    flex-direction: column; /* Imagem em cima, texto embaixo */
+    align-items: center;
+    text-align: center;
+  }
+
+  .faq-content img {
+    width: 120px;
+    height: 120px;
+    margin: 0 0 15px 0;
+  }
+
+  /* --- Slide de Serviços (.pagina) --- */
+  /* Transforma o slide horizontal em uma lista vertical scrollável ou empilhada */
+  .slide {
+    flex-direction: column;
+    height: auto;
+    padding: 40px 0;
+    gap: 15px;
+  }
+
+  .pagina {
+    width: 90%; /* Card largo */
+    height: auto; /* Altura se adapta ao conteúdo */
+    min-height: 120px;
+    margin: 5px 0;
+    padding: 20px;
+    border-radius: 20px;
+    /* Removemos o hover complexo e mostramos o conteúdo de forma mais simples */
+  }
+  
+  .pagina:hover {
+    width: 90%; /* Remove expansão lateral no mobile */
+  }
+
+  .pagina .descricao {
+    /* No mobile, talvez queira mostrar sempre ou manter o efeito sutil */
+    opacity: 1; 
+    height: auto;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    pointer-events: auto;
+    display: block;
+  }
+
+  /* --- Formulário de Contato (.header-fale) --- */
+  .header-fale {
+    flex-direction: column; /* Empilha: Texto Amarelo em cima, Form em baixo */
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 20px;
+    height: auto;
+  }
+
+  .header-content {
+    width: 100%;
+    padding: 40px 20px;
+    border-radius: 20px 20px 0 0; /* Arredonda só em cima */
+    text-align: center;
+  }
+
+  .header-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .header-fale::after {
+    display: none; /* Remove o bloco branco lateral decorativo */
+  }
+
+  .contact-form {
+    width: 100%;
+    margin: 0;
+    padding: 30px 20px;
+    background: #fff; /* Garante fundo branco */
+    border-radius: 0 0 20px 20px;
+  }
+  
+  /* Ajuste Dark Mode para o Formulário Mobile */
+  body.dark-mode .contact-form {
+    background: #13151f;
+  }
+
+  /* --- Modal --- */
+  .modal-content {
+    width: 85%;
+    margin: 0 auto;
+    padding: 25px;
+  }
+}
+
+/* Ajuste para telas muito pequenas (iPhone SE, etc) */
+@media (max-width: 380px) {
+  .hero-content h1 { font-size: 2rem; }
+  .navbar-logo img { height: 50px; }
 }
