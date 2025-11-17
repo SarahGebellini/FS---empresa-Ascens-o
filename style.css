@@ -1119,52 +1119,73 @@ body.dark-mode .modal p {
     pointer-events: auto;
     display: block;
   }
-.header-fale {
+  
+/* 1. O Container Principal */
+  .header-fale {
     display: flex !important;
-    flex-direction: column !important; /* Garante que fique um em cima do outro */
-    width: 95% !important;             /* Força largura da tela do celular */
+    flex-direction: column !important; /* Empilha um em cima do outro */
+    width: 90% !important;             /* Largura correta para celular */
     max-width: 100% !important;
-    height: auto !important;           /* Remove altura fixa */
-    margin: 20px auto !important;
-    border-radius: 15px !important;
-    overflow: hidden !important;       /* Garante que nada vaze */
+    height: auto !important;           /* Altura automática */
+    min-height: auto !important;
+    margin: 20px auto !important;      /* Centraliza */
+    background: transparent !important; /* Remove fundo geral */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+    border-radius: 20px !important;
   }
 
-  /* 2. Remove completamente o quadrado branco lateral do desktop */
+  /* 2. O ELEMENTO FANTASMA (O Grande Culpado) */
+  /* Isso remove a barra branca lateral do desktop que estava quebrando tudo */
   .header-fale::after {
     content: none !important;
     display: none !important;
-    width: 0 !important;
   }
 
-  /* 3. Ajusta a caixa amarela (Texto) */
+  /* 3. A Parte Amarela (Texto) */
   .header-content {
     width: 100% !important;
-    padding: 40px 20px !important;
-    border-radius: 0 !important; /* Remove curvas estranhas no meio */
+    border-radius: 20px 20px 0 0 !important; /* Arredonda só o topo */
+    padding: 40px 25px !important;
+    box-sizing: border-box !important;
+  }
+  
+  .header-content h2 {
+    font-size: 1.8rem !important;
     text-align: center !important;
   }
 
-  /* 4. Ajusta a caixa do formulário (Inputs) */
+  /* 4. O Formulário (Inputs) */
   .contact-form {
     width: 100% !important;
-    margin: 0 !important;        /* Remove margem esquerda */
+    margin: 0 !important;          /* Remove a margem lateral de 8% do desktop */
     padding: 30px 20px !important;
-    background: #fff !important; /* Fundo branco */
+    background: #ffffff !important; /* Adiciona o fundo branco aqui */
+    border-radius: 0 0 20px 20px !important; /* Arredonda só o fundo */
+    box-sizing: border-box !important;
   }
 
-  /* 5. Correção para Dark Mode (se estiver usando) */
+  /* Ajuste dos Inputs para não estourar a tela */
+  .grupo-nome {
+    width: 100% !important;
+    margin-bottom: 20px !important;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100% !important;
+    box-sizing: border-box !important; /* Garante que padding não aumente a largura */
+  }
+
+  /* 5. Correção para o Modo Escuro (Dark Mode) */
   body.dark-mode .contact-form {
     background: #13151f !important;
   }
   
-  /* 6. Previne que inputs vazem a tela */
-  .contact-form input, 
-  .contact-form textarea {
-    width: 100% !important;
-    box-sizing: border-box !important; /* Crítico: conta a borda dentro do tamanho */
-    max-width: 100% !important;
-  }
+  /* Garante que o texto do input fique visível no dark mode */
+  body.dark-mode .contact-form input,
+  body.dark-mode .contact-form textarea {
+      color: #e0e0e0 !important;
+      border-color: #e1b874 !important;
 
   /* --- Modal --- */
   .modal-content {
@@ -1179,3 +1200,4 @@ body.dark-mode .modal p {
   .hero-content h1 { font-size: 2rem; }
   .navbar-logo img { height: 50px; }
 }
+
