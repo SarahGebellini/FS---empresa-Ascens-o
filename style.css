@@ -612,6 +612,34 @@ button::hover {
   padding: 0 5px;
 }
 
+@media (max-width: 600px) {
+  .contact-form {
+    width: 100%;
+    padding: 30px 20px;
+    margin-left: 0;
+  }
+
+  .grupo-nome {
+    margin-bottom: 15px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  .grupo-nome label {
+    left: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .contact-form button {
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+
 .modal {
   display: none;
   position: fixed;
