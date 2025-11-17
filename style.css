@@ -1119,50 +1119,51 @@ body.dark-mode .modal p {
     pointer-events: auto;
     display: block;
   }
-
-  /* --- Formulário de Contato (.header-fale) --- */
-  .header-fale {
-    flex-direction: column; /* Empilha: Texto Amarelo em cima, Form em baixo */
-    width: 90%;
-    margin: 0 auto;
-    border-radius: 20px;
-    height: auto;
+.header-fale {
+    display: flex !important;
+    flex-direction: column !important; /* Garante que fique um em cima do outro */
+    width: 95% !important;             /* Força largura da tela do celular */
+    max-width: 100% !important;
+    height: auto !important;           /* Remove altura fixa */
+    margin: 20px auto !important;
+    border-radius: 15px !important;
+    overflow: hidden !important;       /* Garante que nada vaze */
   }
 
-  .header-content {
-    width: 100%;
-    padding: 40px 20px;
-    border-radius: 20px 20px 0 0; /* Arredonda só em cima */
-    text-align: center;
-  }
-
-  .header-content h2 {
-    font-size: 1.8rem;
-  }
-
+  /* 2. Remove completamente o quadrado branco lateral do desktop */
   .header-fale::after {
-    display: none; /* Remove o bloco branco lateral decorativo */
+    content: none !important;
+    display: none !important;
+    width: 0 !important;
   }
 
+  /* 3. Ajusta a caixa amarela (Texto) */
+  .header-content {
+    width: 100% !important;
+    padding: 40px 20px !important;
+    border-radius: 0 !important; /* Remove curvas estranhas no meio */
+    text-align: center !important;
+  }
+
+  /* 4. Ajusta a caixa do formulário (Inputs) */
   .contact-form {
-    width: 100%;           /* Ocupa toda a largura */
-    margin-left: 0;        /* Remove a margem lateral do desktop */
-    padding: 30px 20px;    /* Espaçamento interno confortável */
-    background: #fff;      /* Garante fundo branco */
-    border-radius: 0 0 20px 20px; /* Arredonda só embaixo */
+    width: 100% !important;
+    margin: 0 !important;        /* Remove margem esquerda */
+    padding: 30px 20px !important;
+    background: #fff !important; /* Fundo branco */
   }
 
-  /* Ajuste dos inputs para não estourarem a tela */
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    box-sizing: border-box; /* Garante que o padding não aumente a largura */
+  /* 5. Correção para Dark Mode (se estiver usando) */
+  body.dark-mode .contact-form {
+    background: #13151f !important;
   }
   
-  /* Ajuste Dark Mode para o Formulário Mobile */
-  body.dark-mode .contact-form {
-    background: #13151f;
-  }
+  /* 6. Previne que inputs vazem a tela */
+  .contact-form input, 
+  .contact-form textarea {
+    width: 100% !important;
+    box-sizing: border-box !important; /* Crítico: conta a borda dentro do tamanho */
+    max-width: 100% !important;
 
   /* --- Modal --- */
   .modal-content {
@@ -1177,4 +1178,5 @@ body.dark-mode .modal p {
   .hero-content h1 { font-size: 2rem; }
   .navbar-logo img { height: 50px; }
 }
+
 
